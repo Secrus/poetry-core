@@ -141,11 +141,14 @@ def test_make_setup() -> None:
         ]
     }
     assert ns["scripts"] == [str(Path("bin") / "script.sh")]
-    assert ns["extras_require"] == {
-        'time:python_version ~= "2.7" and sys_platform == "win32" or python_version in "3.4 3.5"': [  # noqa: E501
-            "pendulum>=1.4,<2.0"
-        ]
-    }
+    assert (
+        ns["extras_require"]
+        == {
+            'time:python_version ~= "2.7" and sys_platform == "win32" or python_version in "3.4 3.5"': [  # noqa: E501
+                "pendulum>=1.4,<2.0"
+            ]
+        }
+    )
 
 
 def test_make_pkg_info(mocker: MockerFixture) -> None:
