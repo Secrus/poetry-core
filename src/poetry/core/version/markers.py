@@ -13,7 +13,7 @@ from typing import Generic
 from typing import TypeVar
 from typing import Union
 
-from packaging.utils import canonicalize_name
+from poetry.core._vendor.packaging.utils import canonicalize_name
 
 from poetry.core.constraints.generic import BaseConstraint
 from poetry.core.constraints.generic import Constraint
@@ -29,7 +29,7 @@ if TYPE_CHECKING:
     from collections.abc import Callable
     from collections.abc import Iterable
 
-    from lark import Tree
+    from poetry.core._vendor.lark import Tree
 
 
 class InvalidMarker(ValueError):
@@ -873,7 +873,7 @@ def parse_marker(marker: str) -> BaseMarker:
 def _compact_markers(
     tree_elements: Tree, tree_prefix: str = "", top_level: bool = True
 ) -> BaseMarker:
-    from lark import Token
+    from poetry.core._vendor.lark import Token
 
     # groups is a disjunction of conjunctions
     # eg [[A, B], [C, D]] represents "(A and B) or (C and D)"
